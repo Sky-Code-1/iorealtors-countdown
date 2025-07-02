@@ -55,11 +55,34 @@ const RealEstateCountdown = () => {
       [e.target.name]: e.target.value
     });
   };
+// Simple POST request to create a user
+const createUser = async (userData) => {
+  try {
+    const response = await fetch('https://form.iorealtors.com/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData)
+    });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    console.log('User created successfully:', result);
+    return result;
+  } catch (error) {
+    console.error('Error creating user:', error);
+    throw error;
+  }
+};
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically send the data to your backend
     console.log('Form submitted:', formData);
+    createUser(formData)
     setIsSubmitted(true);
     setTimeout(() => {
       setShowForm(false);
