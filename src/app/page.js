@@ -10,7 +10,7 @@ const RealEstateCountdown = () => {
     minutes: 0,
     seconds: 0
   });
-  
+
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -19,10 +19,11 @@ const RealEstateCountdown = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   useEffect(() => {
-    // Set target date to 30 days from now
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 30);
-    
+    // Set target date to August 1st
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    let targetDate = new Date(currentYear, 7, 1);
+
     const updateCountdown = () => {
       const now = new Date().getTime();
       const target = targetDate.getTime();
@@ -91,21 +92,21 @@ const RealEstateCountdown = () => {
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-6 shadow-2xl">
             <Building className="w-10 h-10 text-white" />
           </div>
-          
+
           <h1 className=" text:2xl sm:text-6xl md:text-8xl font-bold text-white mb-2 tracking-tight">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               IOREALTORS
             </span>
           </h1>
-          
+
           <p className="text-2xl md:text-3xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-4">
             Coming Soon
           </p>
-          
+
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Revolutionary Real Estate Platform
           </p>
-          
+
           <div className="flex items-center justify-center space-x-2 text-slate-400">
             <Sparkles className="w-5 h-5" />
             <span className="text-lg">Launching in</span>
@@ -170,7 +171,7 @@ const RealEstateCountdown = () => {
               <p className="text-sm">Real-time market insights and investment opportunities</p>
             </div>
           </div>
-          
+
           {/* Communication Features */}
           <div className="border-t border-white/10 pt-8">
             <h4 className="text-xl font-bold text-white mb-6">Direct Communication</h4>
@@ -202,7 +203,7 @@ const RealEstateCountdown = () => {
           <p className="text-slate-400 text-lg">
             Be the first to experience the future of real estate
           </p>
-          <button 
+          <button
             onClick={openForm}
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-2xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 group"
           >
@@ -218,7 +219,7 @@ const RealEstateCountdown = () => {
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 max-w-md w-full border border-white/20 shadow-2xl">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl font-bold text-white">Get Early Access</h3>
-              <button 
+              <button
                 onClick={closeForm}
                 className="text-slate-400 hover:text-white transition-colors"
               >
