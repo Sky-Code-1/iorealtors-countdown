@@ -126,7 +126,7 @@ const RealEstateCountdown = () => {
               <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25">
                 <div className="flex flex-col items-center space-y-4">
                   <item.icon className="w-8 h-8 text-purple-400 group-hover:text-purple-300 transition-colors duration-300" />
-                  {items && <div className="text-4xl md:text-5xl font-bold text-white font-mono tracking-wider">
+                  {item && <div className="text-4xl md:text-5xl font-bold text-white font-mono tracking-wider">
                     {formatNumber(item.value)}
                   </div>}
                   <div className="text-slate-300 text-lg font-medium uppercase tracking-widest">
